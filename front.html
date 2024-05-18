@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Farm Sense</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-bar w3-card" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right nav-button" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button nav-button"><span class="nav-text">HOME</span></a>
+    <a href="#farmdata" class="w3-bar-item w3-button w3-hide-small nav-button"><i class="fa fa-area-chart"></i><span class="nav-text"> FARM DATA</span></a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small nav-button"><i class="fa fa-envelope"></i><span class="nav-text"> CONTACT</span></a>
+  </div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+  <a href="#farmdata" class="w3-bar-item w3-button" onclick="toggleFunction()">FARM DATA</a>
+  <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+</div>
+
+ <!-- First Parallax Image with Logo Text -->
+ <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xxlarge w3-wide w3-animate-opacity larger-text">
+      <span class="w3-hide-small">FARM</span> SENSE
+    </span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ABOUT THE SYSTEM</h3>
+  <p class="w3-center"><em>Efficiently manage and monitor your farm data</em></p>
+  <p class="centered-paragraph">The Farm Sense is a comprehensive solution designed to help farmers optimize their operations by providing real-time data on various parameters such as temperature, humidity, soil moisture, and more.</p>
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-black w3-wide text-outline">FARM DATA</span>
+  </div>
+</div>
+
+<!-- Container (Farm Data Section) -->
+<div class="w3-content w3-container w3-padding-64" id="farmdata">
+  <h3 class="w3-center">FARM DATA</h3>
+  <p class="w3-center"><em>Real-time monitoring of farm parameters</em></p>
+  
+  <!-- Text above FarmInfo -->
+  <p class="w3-center">Please provide the following information:</p>
+  
+  <!-- Form for Farm Data Input -->
+  <form id="farmForm">
+    <!-- Farm Info Section -->
+    <div class="w3-card-4 w3-margin-bottom">
+      <div class="w3-container w3-light-grey">
+        <h4><strong>Farm Info</strong></h4>
+      </div>
+      <div class="w3-container">
+        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Farm Name" id="farmName">
+        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Location" id="location">
+        <button class="w3-button w3-black w3-margin-top" type="button" onclick="submitFarmInfo()">Submit Farm Info</button>
+      </div>
+    </div>
+
+    <!-- Parameters Section -->
+    <div class="w3-card-4">
+      <div class="w3-container w3-light-grey">
+        <h4><strong>Parameters</strong></h4>
+      </div>
+      <div class="w3-container">
+        <select class="w3-select w3-border w3-margin-top" id="farmNameSelect">
+          <option value="" disabled selected>Select Farm Name</option>
+          <!-- Options will be populated dynamically -->
+        </select>
+        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Temperature" id="temperature">
+        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Humidity" id="humidity">
+        <input class="w3-input w3-border w3-margin-top" type="text" placeholder="Soil Moisture" id="soilMoisture">
+        <button class="w3-button w3-black w3-margin-top" type="button" onclick="submitParameters()">Submit Parameters</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Display submitted data -->
+  <div class="w3-container w3-padding-32" id="submittedData">
+    <h4><strong>Submitted Data:</strong></h4>
+    <table class="w3-table w3-bordered w3-striped">
+      <thead>
+        <tr>
+          <th>Farm Name</th>
+          <th>Location</th>
+          <th>Temperature</th>
+          <th>Humidity</th>
+          <th>Soil Moisture</th>
+          <th>Actions</th> <!-- Updated column header -->
+        </tr>
+      </thead>
+      <tbody id="dataTable">
+        <!-- Data will be populated here -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-black w3-wide text-outline">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">CONTACT US</h3>
+  <p class="w3-center"><em>I'd love your feedback!</em></p>
+
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-third">
+      <div class="w3-card w3-container w3-padding-16">
+        <div class="circle">
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/440999515_1625476258283660_2506758623799880377_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=z3j9Nfw68J0Q7kNvgFCoauo&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFTZAwLYUA_jUBUss_UbabFGtUZGKei3VjpMRpy3wfRVA&oe=666AE158" alt="Person 1" class="circle-img">
+        </div>
+        <h4>Mel Leonard Hortilano</h4>
+        <div class="icon-container">
+          <a href="mailto:melleonard.hortilano@g.msuiit.edu.ph">
+            <img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" alt="Email Icon" class="icon-img">
+          </a>
+          <a href="https://www.linkedin.com/in/mel-leonard-hortilano-0979622aa/">
+            <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="LinkedIn Icon" class="icon-img">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third">
+      <div class="w3-card w3-container w3-padding-16">
+        <div class="circle">
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/440195856_742662701369133_7120085818990105407_n.png?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-_G7OXK9uWQQ7kNvgGN_K9z&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QGc44Kxe4vc-0hYTtg1y804J_2uRoMilz_WuM4ohnxELQ&oe=666D56BD" alt="Person 2" class="circle-img">
+        </div>
+        <h4>Joseph Ray Maghinay</h4>
+        <div class="icon-container">
+          <a href="mailto:josephray.maghinay@g.msuiit.edu.ph">
+            <img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" alt="Email Icon" class="icon-img">
+          </a>
+          <a href="https://www.linkedin.com/in/joseph-ray-maghinay-7399632aa/">
+            <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="LinkedIn Icon" class="icon-img">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="w3-third">
+      <div class="w3-card w3-container w3-padding-16">
+        <div class="circle">
+          <img src="https://media.discordapp.net/attachments/898081237414064180/1240625882515771392/2x2ver.jpg?ex=66473e64&is=6645ece4&hm=dc46338b6aae1d6f00cb439d9c02a01edacc987d5497a621780f858e9f1d6a6f&=&format=webp&width=687&height=676" alt="Person 3" class="circle-img">
+        </div>
+        <h4>Johnmar Andaloc</h4>
+        <div class="icon-container">
+          <a href="mailto:johnmar.andaloc@g.msuiit.edu.ph">
+            <img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" alt="Email Icon" class="icon-img">
+          </a>
+          <a href="https://www.linkedin.com/in/johnmar-andaloc-6442842aa/">
+            <img src="https://cdn-icons-png.flaticon.com/256/174/174857.png" alt="LinkedIn Icon" class="icon-img">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .circle-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  .icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* space between icons */
+    margin-top: 10px;
+  }
+  .icon-img {
+    width: 24px;
+    height: 24px;
+  }
+</style>
+
+
+
+<script>
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    fetchData();
+    fetchFarmNames();
+  });
+
+  function submitFarmInfo() {
+  const farmName = document.getElementById('farmName').value;
+  const location = document.getElementById('location').value;
+
+  fetch('http://localhost:3006/api/farmInfo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ farmName, location })
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    fetchFarmNames(); // Update farm name dropdown
+    document.getElementById('farmName').value = ''; // Clear input after submission
+    document.getElementById('location').value = ''; // Clear input after submission
+  })
+  .catch(error => console.error('Error:', error));
+}
+
+function submitParameters() {
+  const farmName = document.getElementById('farmNameSelect').value;
+  const temperature = document.getElementById('temperature').value;
+  const humidity = document.getElementById('humidity').value;
+  const soilMoisture = document.getElementById('soilMoisture').value;
+
+  fetch(`http://localhost:3006/api/farmInfo/${farmName}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.length === 0) {
+        throw new Error('Farm not found');
+      }
+      const farmID = data[0].farmID;
+      return fetch('http://localhost:3006/api/parameters', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ farmID, temperature, humidity, soilMoisture })
+      });
+    })
+    .then(response => response.text())
+    .then(data => {
+      alert(data);
+      fetchData();
+      document.getElementById('temperature').value = ''; // Clear input after submission
+      document.getElementById('humidity').value = ''; // Clear input after submission
+      document.getElementById('soilMoisture').value = ''; // Clear input after submission
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function fetchData() {
+  fetch('http://localhost:3006/api/data')
+    .then(response => response.json())
+    .then(data => {
+      const dataTable = document.getElementById('dataTable');
+      dataTable.innerHTML = ''; // Clear existing table rows
+      data.forEach(entry => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${entry.farmName}</td>
+          <td>${entry.location}</td>
+          <td>${entry.temperature}</td>
+          <td>${entry.humidity}</td>
+          <td>${entry.soilMoisture}</td>
+          <td>
+           
+            <button onclick="deleteData(${entry.farmID})">Delete</button>
+          </td>
+        `;
+        dataTable.appendChild(row);
+      });
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function deleteData(farmID) {
+  if (!confirm('Are you sure you want to delete this entry?')) {
+    return;
+  }
+
+  fetch(`http://localhost:3006/api/data/${farmID}`, {
+    method: 'DELETE'
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    fetchData();
+  })
+  .catch(error => console.error('Error:', error));
+}
+
+function fetchFarmNames() {
+  fetch('http://localhost:3006/api/farmInfo')
+    .then(response => response.json())
+    .then(data => {
+      const farmNameSelect = document.getElementById('farmNameSelect');
+      farmNameSelect.innerHTML = '<option value="" disabled selected>Select Farm Name</option>';
+      data.forEach(farm => {
+        const option = document.createElement('option');
+        option.value = farm.farmName;
+        option.textContent = farm.farmName;
+        farmNameSelect.appendChild(option);
+      });
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

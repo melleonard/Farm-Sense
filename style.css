@@ -1,0 +1,149 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Lato", sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+  }
+  
+  /* Create a Parallax Effect */
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* First image (Logo. Full height) */
+  .bgimg-1 {
+    background-image: url('https://eos.com/wp-content/uploads/2019/02/precision-agriculture-machines-in-field.jpg');
+    min-height: 100%;
+  }
+  
+  /* Second image (Portfolio) */
+  .bgimg-2 {
+    background-image: url("https://digitalagrihub.org/documents/53473/53477/SDEAS1.jpg/2a4fc2a9-2658-3841-5195-075a55bcfff5?version=1.0&t=1702299743642");
+    min-height: 400px;
+  }
+  
+  /* Third image (Contact) */
+  .bgimg-3 {
+    background-image: url("https://png.pngtree.com/background/20230519/original/pngtree-group-of-farmers-working-in-rice-fields-picture-image_2654662.jpg");
+    min-height: 400px;
+  }
+  
+  .w3-wide {
+    letter-spacing: 10px;
+  }
+  
+  .w3-hover-opacity {
+    cursor: pointer;
+  }
+  
+  /* Turn off parallax scrolling for tablets and phones */
+  @media only screen and (max-device-width: 1600px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      background-attachment: scroll;
+      min-height: 400px;
+    }
+  }
+  
+  /* Custom CSS for larger navigation links */
+  .w3-bar-item {
+    font-size: 30px; /* Adjust the font size as needed */
+  }
+  
+  #myNavbar {
+    background-color: rgba(97, 95, 95, 0.904) !important; /* Updated to use rgba for transparency */
+    padding: 10px 0; /* Padding for the navbar */
+  }
+  
+  .text-outline {
+    color: white; /* Main text color */
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000; /* Creating the outline effect */
+  }
+  
+  /* Additional CSS for form sections */
+  .w3-card-4 {
+    margin-bottom: 20px;
+  }
+  
+  .w3-card-4 .w3-container {
+    padding: 20px;
+  }
+  
+  .w3-button {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Centered paragraph style */
+  .centered-paragraph {
+      text-align: center; /* Center-align the paragraph text */
+      margin: auto; /* Center-align the paragraph block */
+      width: 80%; /* Adjust the width as needed */
+  }
+  
+  /* Custom CSS to make navigation button rectangles transparent */
+  .nav-button {
+      background-color: transparent !important; /* Make button background transparent */
+      border: none !important; /* Remove any borders */
+  }
+  
+  /* Custom CSS to style navigation button text */
+  .nav-button .nav-text {
+      color: white; /* Color for the text */
+  }
+  
+  /* Custom CSS to style navigation button icons */
+  .nav-button i {
+      color: white; /* Color for the icons */
+      opacity: 1; /* Keep the icons fully visible */
+  }
+  
+  .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  .circle-img {
+    width: 100%;
+    height: auto;
+  }
+  /* style.css */
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
